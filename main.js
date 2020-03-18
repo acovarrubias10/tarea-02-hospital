@@ -5,6 +5,7 @@ import Paciente from "./paciente.js"
 import Doctor from "./doctor.js"
 import Cita from "./cita.js"
 import Hospital from "./hospital.js"
+import PacienteAsegurado from "./pacienteAsegurado.js"
 
 class Main {
     constructor() {
@@ -32,10 +33,31 @@ class Main {
         console.log(nombre.getApellidoNombre())
         console.log(nombre.getIniciales())
     }
+
     testPaciente() {
-        let paciente = new Paciente(new Nombre("Vanessa", "Covarrubias", "Nava"), new Fecha(25, 2, 2001), 3121434929)
-        console.log(paciente.getPerfil())
+        let pacienteInformacion1 = { 
+            nombre: new Nombre("Vanessa", "Covarrubias", "Nava"), 
+            fechaNa: new Fecha(25, 2, 2001), telefono: 3121434929
+            }
+
+            let paciente1 = new Paciente(pacienteInformacion1)
+
+
+            let pacienteInformacion2 = { 
+            nombre: new Nombre("Vanessa", "Covarrubias", "Nava"), 
+            fechaNa: new Fecha(25, 2, 2001), 
+            telefono: 3121434929,
+            numeroPoliza: 4567,
+            fechaFinVigencia: new Fecha(24,2,2023),
+            compañia: "IMSS"
+            }
+            let paciente2 = new PacienteAsegurado(pacienteInformacion2)
+
+        console.log(paciente1.getPerfil())
+        console.log(paciente2.getPerfil())
     }
+
+
     testDoctor() {
         let doctor = new Doctor("Cedula1", "Cirujano", new Nombre("Jorge", "Lopez", "Nava"), 3121456789)
         console.log(doctor.getPerfil())

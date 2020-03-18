@@ -1,25 +1,4 @@
 
-const diaSemana = ["Domingo,", 
-"Lunes", 
-"Martes", 
-"Miercoles", 
-"Jueves", 
-"Viernes", 
-"Sábado"]
-
-const nombreMes = ["Ene", 
-"Feb", 
-"Mar", 
-"Abr", 
-"May", 
-"Jun", 
-"Jul", 
-"Ago", 
-"Sep", 
-"Oct", 
-"Nov", 
-"Dic"]
-
 export default class Fecha {
     /**
      * 

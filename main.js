@@ -59,20 +59,61 @@ class Main {
 
 
     testDoctor() {
-        let doctor = new Doctor("Cedula1", "Cirujano", new Nombre("Jorge", "Lopez", "Nava"), 3121456789)
+            let doctorInformacion = {
+                cedula: "Cedula 1",
+                especialidad : "especialidad",
+                nombre: new Nombre("Jorge", "Lopez", "Nava"), 
+                telefono: 3121456789}
+
+            let doctor = new Doctor(doctorInformacion)
         console.log(doctor.getPerfil())
     }
 
     testCita() {
-        let cita = new Cita(new Fecha(26, 3, 2021), new Tiempo(13, 0, "pm"), new Doctor("Cedula1", "Cirujano", new Nombre("Jorge", "Lopez", "Nava"), 3121456789), new Paciente(new Nombre("Vanessa", "Covarrubias", "Nava")))
-        console.log(cita.getPerfil())
+        let pacienteInformacion1 = { 
+            nombre: new Nombre("Vanessa", "Covarrubias", "Nava"), 
+            fechaNa: new Fecha(25, 2, 2001), telefono: 3121434929
+            }
+
+        let doctorInformacion = {
+            cedula: "Cedula 1",
+            especialidad : "especialidad",
+            nombre: new Nombre("Jorge", "Lopez", "Nava"), 
+            telefono: 3121456789}
+
+        let cita1 = 
+        new Cita(new Fecha(26, 3, 2021), 
+        new Tiempo(13, 0, "pm"), 
+        new Doctor(doctorInformacion), new Paciente(pacienteInformacion1))
+        console.log(cita1.getPerfil())
     }
 
     agregarDoctor() {
-        let doctor1 = new Doctor("Cedula1", "Especialidad", new Nombre("Jorge", "Lopez", "Nava"), 3121675789)
-        let doctor2 = new Doctor("Cedula2", "Psiquiatra", new Nombre("Ana", "Landin", "Lopez"), 31245567687)
-        let doctor3 = new Doctor("Cedula3", "Maxilofacial", new Nombre("Brandon", "Zazueta", "Zandoval"), 3121456778)
-    
+        let informacionDoctor1 = {
+            cedula: "Cedula1",
+            especialidad: "Especialidad", 
+            nombre: new Nombre("Jorge", "Lopez", "Nava"), 
+            telefono: 3121675789
+            }
+
+        let informacionDoctor2 = {
+            cedula: "Cedula2",
+            especialidad: "Psiquiatra", 
+            nombre: new Nombre("Ana", "Landin", "Lopez"),
+            telefono: 31245567687
+            }
+
+        let informacionDoctor3 = {
+            cedula: "Cedula3", 
+            especialidad: "Maxilofacial",
+            nombre: new Nombre("Brandon", "Zazueta", "Zandoval"), 
+            telefono: 3121456778
+            }
+
+            let doctor1 = new Doctor(informacionDoctor1)
+            let doctor2 = new Doctor(informacionDoctor2)
+            let doctor3 = new Doctor(informacionDoctor3) 
+
         this.hospital.registrarDoctor(doctor1)
         this.hospital.registrarDoctor(doctor2)
         this.hospital.registrarDoctor(doctor3)
@@ -80,7 +121,23 @@ class Main {
     }
     
     agregarCita() {
-        let cita1 = new Cita(new Fecha(26, 3, 2021), new Tiempo(13, 0, "pm"), new Doctor("Cedula1", "Cirujano", new Nombre("Jorge", "Lopez", "Nava"), 3121456789), new Paciente(new Nombre("Vanessa", "Covarrubias", "Nava"), new Fecha(3,4,2001), 3122739451))
+        let pacienteInformacion1 = { 
+            nombre: new Nombre("Vanessa", "Covarrubias", "Nava"), 
+            fechaNa: new Fecha(25, 2, 2001), telefono: 3121434929
+        }
+
+        let informacionDoctor1 = {
+            cedula: "Cedula1",
+            especialidad: "Especialidad", 
+            nombre: new Nombre("Jorge", "Lopez", "Nava"), 
+            telefono: 3121675789
+            }
+
+
+        let cita1 = new Cita(new Fecha(26, 3, 2021), 
+        new Tiempo(13, 0, "pm"), 
+        new Doctor(informacionDoctor1), 
+        new Paciente(pacienteInformacion1))
         this.hospital.registrarCita(cita1)
         this.hospital.listarCitas()
     }
